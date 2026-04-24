@@ -93,5 +93,11 @@ console.log(!(true || true)); // false
 
 const estaLloviendo = true;
 
-estaLloviendo ? console.log("Lleva un paraguas") : console.log("No necesitas paraguas"); // Si estaLloviendo es true, se ejecuta la primera parte, si es false, se ejecuta la segunda parte.    
+estaLloviendo ? console.log("Lleva un paraguas") : console.log("No necesitas paraguas"); // Si estaLloviendo es true, se ejecuta la primera parte, si es false, se ejecuta la segunda parte. 
+
+
+let edad = 18
+
+let esMayor = edad >= 18 ? "adulto" : "menor"
+console.log(esMayor)
 

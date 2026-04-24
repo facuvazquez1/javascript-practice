@@ -36,6 +36,7 @@ console.log(myName.slice(0, 4)) // Resultado: "Facu"
 // replace para reemplazar parte de la cadena
 console.log(myName.replace("Facundo", "Manu")) // Resultado: "Manundo"
 
+
 // -------------------- Template literals para concatenar de forma más legible --------------------------
 
 // String en varias líneas con template literals con backticks (``), tambien se imprime tal cual lo escribimos, con saltos de linea incluidos
