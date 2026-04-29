@@ -1,4 +1,4 @@
-// 🧪 Ejercicios JavaScript — Consolidación (01–09)
+// 🧪 Ejercicios JavaScript — Consolidación ( unidad: 01–09)
 
 // ==============================
 // BLOQUE 1 — Lógica + Bucles
@@ -7,21 +7,54 @@
 // 1. Mostrar números del 1 al 10
 // Pista: usar un `for` con contador.
 
+for (let i = 1; i <= 10; i++){
+    console.log(`Numero: ${i}`)
+}
+
 
 // 2. Mostrar números del 10 al 1
 // Pista: el contador debe decrementar.
+
+for (let i = 10; i > 0; i--){
+    console.log(`Numero: ${i}`)
+}
+
 
 
 // 3. Mostrar solo números pares del 1 al 20
 // Pista: usar `% 2 === 0`.
 
+for (let i = 1; i <= 20; i++){
+    if (i % 2 === 0) {
+        console.log(i)
+    } 
+}
+
 
 // 4. Sumar números del 1 al 100
 // Pista: usar una variable acumuladora (`total`).
 
+let acumulador = 0
+
+for (let i = 1; i <= 100; i++)  {
+    acumulador = acumulador + i
+}
+
+console.log(acumulador)
+
 
 // 5. Contar cuántos números son mayores a 50 (del 1 al 100)
 // Pista: usar contador + `if`.
+
+let contador = 0
+
+for (let i = 1; i <= 100; i++) {
+    if (i > 50){
+        contador++
+    }
+}
+
+console.log(contador)
 
 
 // ==============================
@@ -32,25 +65,60 @@
 const frutas1 = ["manzana", "banana", "pera"];
 // Pista: recorrer con `for` usando `.length`.
 
+for (let i = 0; i < frutas1.length; i++){
+    console.log(frutas1[i])
+}
 
 // 7. Mostrar solo frutas con más de 5 letras
 const frutas2 = ["manzana", "banana", "pera", "kiwi"];
 // Pista: usar `.length` del string.
+
+for (let i = 0; i < frutas2.length; i++){
+    if (frutas2[i].length > 5) {
+        console.log(`frutas con mas de 5 letras: ${frutas2[i]}`)
+    }
+}
 
 
 // 8. Contar cuántas frutas empiezan con "m"
 const frutas3 = ["manzana", "banana", "melon", "mango"];
 // Pista: acceder al primer carácter con `[0]`.
 
+let contador1 = 0
+
+for (let i = 0; i < frutas3.length; i++){
+    if(frutas3[i][0] === "m"){
+        contador1++
+    }
+}
+
+console.log(contador1)
 
 // 9. Crear un nuevo array con frutas en mayúsculas
 const frutas4 = ["manzana", "banana", "pera"];
 // Pista: usar `.toUpperCase()` + `push`.
 
+const newFrutas4 = []
+
+for (let i = 0; i < frutas4.length; i++){
+    newFrutas4.push(frutas4[i].toUpperCase())
+}
+
+console.log(newFrutas4)
+
+
 
 // 10. Sumar todos los números de un array
 const nums1 = [10, 20, 30, 40];
 // Pista: usar acumulador.
+
+let contadorArray = 0
+
+for (let i = 0; i < nums1.length; i++){
+    contadorArray = contadorArray + nums1[i]
+}
+
+console.log(contadorArray)
 
 
 // ==============================
