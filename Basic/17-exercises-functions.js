@@ -100,8 +100,71 @@ console.log(arrayIguales(myArray2, myArray3))
 
 // 7. Crea una función que reciba un array de números y devuelva la suma de todos los números pares
 
+const myArray4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+function sumArray (array) {
+
+    let sumaTotal = 0
+
+    for (let i = 0; i < array.length; i++){
+        if (array[i] % 2 === 0) {
+            sumaTotal += array[i]
+        }
+    }
+
+    return sumaTotal
+
+}
+
+console.log(sumArray(myArray4))
+
 // 8. Crea una función que reciba un array de números y devuelva un nuevo array con cada número elevado al cuadrado
+
+const myArray5 = [1, 2, 3, 4, 5,]
+
+function arrayAlCuadrado (array){
+
+    const arrayCuadrado = []
+
+    for (let i = 0; i < array.length; i++){
+        const numCuadrado = array[i] ** 2
+        arrayCuadrado.push(numCuadrado)
+    }
+
+    return arrayCuadrado 
+
+}
+
+console.log(arrayAlCuadrado(myArray5))
 
 // 9. Crea una función que reciba una cadena de texto y devuelva la misma cadena con las palabras en orden inverso
 
+let cadenaTexto ="Este texto esta al reves"
+
+function cadenaInversa (texto) {
+    
+    return texto.split(" ").reverse().join(" ")
+
+
+}
+
+console.log(cadenaInversa(cadenaTexto))
+
+
+
 // 10. Crea una función que calcule el factorial de un número dado
+
+let numero = 5
+
+function numFactorial (number){
+
+    let resultadoFactorial = 1;
+
+    for (let i = number; i >= 1; i--){
+        resultadoFactorial *= i
+    }
+
+    return resultadoFactorial
+}
+
+console.log(numFactorial(numero))
