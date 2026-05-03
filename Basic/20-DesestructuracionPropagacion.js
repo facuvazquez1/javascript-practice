@@ -54,17 +54,53 @@ let person1 = {
 }
 
 
-let { name, age, email } = person1
-console.log(name) // Ressultado: Facundo Vazquez
-console.log(age) // Ressultado: 39
-console.log(email) // Ressultado: facu@hotmail.com
+// let { name, age, email } = person1
+// console.log(name) // Ressultado: Facundo Vazquez
+// console.log(age) // Ressultado: 39
+// console.log(email) // Ressultado: facu@hotmail.com
 
 
 // Sintaxis objetos con valores predeterminados 
 
-let { name, age, email = "nuevoemail@hotmail.com"} = person1 // los key dentro de los corchetes, tiene que ser la misma que el objeto
-console.log(name)
-console.log(email) // Resultado: nuevoemail@hotmail.com (Modificamos el valor del objeto)
+// let { name, age, email = "nuevoemail@hotmail.com"} = person1 // los key dentro de los corchetes, tiene que ser la misma que el objeto
+// console.log(name)
+// console.log(email) // Resultado: nuevoemail@hotmail.com (Modificamos el valor del objeto)
+
+// Sintaxis objetos con nuevos nombres de variables 
+
+let { name: name3, age:age3, email:email3 } = person1
+console.log(name3) // Ressultado: Facundo Vazquez
+console.log(age3) // Ressultado: 39
+console.log(email3) // Ressultado: facu@hotmail.com
+
+
+// Propagacion (...)
+let myArray2 = [...myArray] // copia 
+
+let myArray3 = [...myArray, 6, 7, 8] // copia y agrega otros datos  
+
+console.log(myArray2) // Resultado: [ 1, 2, 3, 4, 5 ]
+console.log(myArray3) // Resultado: [ 1, 2, 3, 4, 5, 6, 7, 8] (Agrega 6, 7 y 8 al array)
+
+
+// Combinacion de arrays 
+let myArray4 = [...myArray2, ...myArray3]
+console.log(myArray4) // myArray2 + myArray3
+
+// sintaxis objetos
+
+let person5 = {...person, anio: 1998}
+console.log(person5)
+
+
+// Copia de objetos 
+
+let person5 = {...person}
+console.log(person5)
+
+
+
+
 
 
 
