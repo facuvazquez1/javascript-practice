@@ -105,9 +105,11 @@ class GetSetPerson {
         return this.#name
     }
 
-    set bank(newBank){
+    set bank(newBank){ // El set nos permite, modificar la propiedas sin acceder a ella
         this.#bank = newBank
     }
+
+   
 
    
 }
@@ -119,3 +121,5 @@ console.log(person8.name)
 
 person8.bank = "123412322"
 console.log(person8.bank)
+
+
