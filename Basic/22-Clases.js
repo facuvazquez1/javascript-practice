@@ -101,7 +101,7 @@ class GetSetPerson {
         this.#bank = bank
     }
 
-    get name(){ // creo una funcion que retorne el nombre unicamente para que pueda llamarlo con person8.get
+    get name(){ // creo una funcion que retorne el nombre unicamente para que pueda llamarlo con person8.name
         return this.#name
     }
 
