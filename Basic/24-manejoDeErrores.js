@@ -1,66 +1,106 @@
-// Exepcion
+// Excepción
 
-// // Produce una exepcion 
-let myObjetc
-// console.log(myObjetc.email)
+// Produce una excepción
+let myObject
+// console.log(myObject.email)
 
-// Tratamiento de errores 
+// Captura de errores
 
-// ------------ try-catch ------------
+// try-catch
 
-try { 
-    // intenta ejecutar el error 
-    console.log(myObjetc.email) 
-    console.log("Finaliza la ejecucion.") // no se ejecuta
+try {
+    // Código que intenta ejecutar
+    console.log(myObject.email)
+    console.log("Finaliza la ejecución sin errores")
 } catch {
     // Bloque de error
-    console.log("Se a producido un error.")
+    console.log("Se ha producido un error")
 }
 
+// Captura del error
 
-// ------------ Captura del error ------------
-
-try { 
-    // intenta ejecutar el error 
-    console.log(myObjetc.email) 
-} catch (error){
-    // Bloque de error
-    console.log("Se a producido un error:", error.message) // Resultado: Se a producido un error: Cannot read properties of undefined (reading 'email')
+try {
+    console.log(myObject.email)
+} catch (error) {
+    console.log("Se ha producido un error:", error.message)
 }
 
-// ------------ Finally ------------
+// finally
 
-try { 
-    console.log(myObjetc.email) 
-} catch (error){
-    console.log("Se a producido un error:", error.message)
-} finally{
-    // se ejecuta lo que diga si o si
-    console.log("Este codigo se ejecuta siempre")
+try {
+    console.log(myObject.email)
+} catch (error) {
+    console.log("Se ha producido un error:", error.message)
+} finally {
+    console.log("Este código se ejecuta siempre")
 }
 
-// ------------ Lanzamiento de errores - THROW ------------
+// No está soportado
+// try {
+//     console.log(myObject.email)
+// } finally {
+//     console.log("Este código se ejecuta siempre")
+// }
 
-// throw new Error("ERROR 505: se detuvo el sistema") // TypeError - 
+// Lanzamiento de errores
 
-function sum(a, b){
-    if ( a instanceof Number || b instanceof Number){
-        console.log()
+// throw
+
+// throw new Error("Se ha producido un error")
+
+function sumIntegers(a, b) {
+    if (typeof a !== "number" || typeof b !== "number") {
+        throw new TypeError("Esta operación sólo suma números")
     }
-
+    if (!Number.isInteger(a) || !Number.isInteger(b)) {
+        throw new Error("Esta operación sólo suma números enteros")
+    }
+    if (a == 0 || b == 0) {
+        throw new SumZeroIntegerError("Se está intentando sumar cero", a, b)
+    }
     return a + b
 }
 
-console.log(sum(5, 10))
+try {
+    console.log(sumIntegers(5, 10))
+    // console.log(sumIntegers(5.5, 10))
+    console.log(sumIntegers("5", 10))
+    // console.log(sumIntegers(5, "10"))
+    // console.log(sumIntegers("5", "10"))
+} catch (error) {
+    console.log("Se ha producido un error:", error.message)
+}
 
 // Capturar varios tipos de errores
 
-// Crear exepciones personalizados 
+try {
+    // console.log(sumIntegers(5.5, 10))
+    console.log(sumIntegers("5", 10))
+} catch (error) {
+    if (error instanceof TypeError) {
+        console.log("Se ha producido un error de tipo:", error.message)
+    } else if (error instanceof Error) {
+        console.log("Se ha producido un error:", error.message)
+    }
+}
 
-class MyCustomError extends Error {
-    constructor (message, a, b){
+// Crear excepciones personalizadas
+
+class SumZeroIntegerError extends Error {
+    constructor(message, a, b) {
         super(message)
         this.a = a
         this.b = b
     }
+
+    printNumbers() {
+        console.log(this.a, " + ", this.b)
+    }
+}
+
+try {
+    console.log(sumIntegers(0, 10))
+} catch (error) {
+    console.log("Se ha producido un error personalizado:", error.message)
+    error.printNumbers()
 }
