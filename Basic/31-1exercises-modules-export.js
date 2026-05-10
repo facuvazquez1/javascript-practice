@@ -1,8 +1,23 @@
 // 1. Exporta una función
 
+export function suma(a, b){
+    return a + b
+}
+
 // 2. Exporta una constante
 
+export const pi = 3.14
+
 // 3. Exporta una clase
+
+export class Person {
+
+    constructor(name, age, alias){
+        this.name = name
+        this.age = age
+        this.alias = alias
+    }
+}
 
 // 4. Importa una función
 
