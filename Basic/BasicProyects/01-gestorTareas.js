@@ -23,9 +23,9 @@ Construí las funciones una por una y probalas con llamadas manuales al final de
 
 const listaTareas = [
 
-    { id: 0, titulo: "Pagar facturas", completada: false, prioridad: "alta"},
-    { id: 1, titulo: "Sacar al perro", completada: false, prioridad: "media"},
-    { id: 2, titulo: "Hacer un postre", completada: false, prioridad: "baja"}
+    { id: 1, titulo: "Pagar facturas", completada: false, prioridad: "alta"},
+    { id: 2, titulo: "Sacar al perro", completada: false, prioridad: "media"},
+    { id: 3, titulo: "Hacer un postre", completada: false, prioridad: "baja"}
     
 ]
 
@@ -53,12 +53,15 @@ listar(listaTareas)
 // ---------------- funcion: agregarTarea ----------------
 // Decision: no pedimos a la funcion ID, tampoco si esta completada o no, son valores que nosotros definimos por default. 
 
+
+
 function agregarTarea(titulo, prioridad){
-    let newId = max
+
+    const maxId = listaTareas.map(tarea => tarea.id).length
 
     listaTareas.push(
         {
-            id: newId,
+            id: maxId + 1, // # tarea: controlar ID incremental y si se borra uno, que otro ocupe ese ID
             titulo: titulo,
             completada: false,
             prioridad: prioridad,
@@ -67,6 +70,27 @@ function agregarTarea(titulo, prioridad){
 }
 
 agregarTarea("cocina a la noche", "baja")
+listar(listaTareas)
+
+
+// ---------------- funcion: marcarComoCompletada ----------------
+
+function marcarComoCompleta(id) {
+        let encontrada = false
+        for (let i = 0; i < listaTareas.length; i++){
+            if (listaTareas[i].id === id){
+                listaTareas[i].completada = true
+                encontrada = true
+                break
+            } 
+        } 
+        if (!encontrada){
+            console.log("Id no encontrado")
+        }
+
+}
+
+marcarComoCompleta(7)
 listar(listaTareas)
 
 
