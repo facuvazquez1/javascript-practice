@@ -76,3 +76,5 @@ console.log(myArray5) // salida: [ 1, 2, 4, 5 ] (el número 3 ha sido eliminado)
 myArray5.splice(2, 0, 3); // agrega el número 3 en el índice 2 sin eliminar ningún elemento
 console.log(myArray5) // salida: [ 1, 2, 3, 4, 5 ] (el número 3 ha sido agregado nuevamente en el índice 2)
 
+
+
