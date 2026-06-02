@@ -4,12 +4,88 @@
 // Creá un objeto que represente a un estudiante.
 // Debe tener datos personales, una lista de notas y un método que calcule el promedio general.
 
+let student = {
+    name: "Marcos",
+    surname: "Falcon",
+    age: 22, 
+    notes: [6, 4, 10, 7, 5],
+    average: function () {
+        let sum = 0
+        for(let i = 0; i < this.notes.length; i++){
+            sum += this.notes[i]
+
+        }
+
+        const promedio = sum / this.notes.length
+        return promedio
+    },
+
+}
+console.log(student.average())
+
 // ## 2. Objeto producto
 // Creá un objeto que represente un producto de una tienda.
 // Debe tener nombre, precio, stock y un método para vender cierta cantidad, validando si hay stock suficiente.
 
+let product = {
+    name: "Playstation 5",
+    brand: "Sony",
+    releaseDate: "26/10/2018",
+    weight: 57,
+    price: 1500000,
+    stock: 10,
+    sell: function(number) {
+        if (this.stock >= number) {
+           this.stock -= number
+        } else {
+            console.log(`No hay stock disponible. Stock actual: ${this.stock}`)
+        }
+    },
+
+}
+product.sell(10)
+console.log(product.stock)
+
+
+
 // ## 3. Filtrar productos disponibles
 // Creá una función que reciba un array de productos y devuelva solo aquellos que tengan stock disponible.
+
+const listProduct = [
+    {
+        name: "Banana",
+        price: 400,
+        stock: 0,
+    },
+    {
+        name: "Naranja",
+        price: 250,
+        stock: 2,
+    },
+    {
+        name: "Manzana",
+        price: 195,
+        stock: 9,
+    },
+    {
+        name: "Frutilla",
+        price: 800,
+        stock: 0,
+    },
+]
+
+function availableStock (productos) {
+    let listAvailableStock = []
+    for(let i = 0; i < productos.length; i++) {
+        if (productos[i].stock > 0) {
+            listAvailableStock.push(productos[i])
+        }
+
+    }
+    return listAvailableStock
+}
+
+console.log(availableStock(listProduct))
 
 // ## 4. Buscar usuario por email
 // Creá una función que reciba un array de usuarios y un email.
