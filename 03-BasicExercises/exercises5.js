@@ -46,11 +46,8 @@ let product = {
 product.sell(10)
 console.log(product.stock)
 
-
-
 // ## 3. Filtrar productos disponibles
 // Creá una función que reciba un array de productos y devuelva solo aquellos que tengan stock disponible.
-
 const listProduct = [
     {
         name: "Banana",
@@ -91,9 +88,54 @@ console.log(availableStock(listProduct))
 // Creá una función que reciba un array de usuarios y un email.
 // La función debe devolver el usuario que coincida con ese email.
 
+let users = [
+    {
+        name: "facu1",
+        email: "facu1@hotmail.com"
+    },
+    {
+        name: "marcos1",
+        email: "marcos1@hotmail.com"
+    },
+    {
+        name: "flavio",
+        email: "flavio1@hotmail.com"
+    }
+]
+
+function userSearch (array, email) {
+    for(let i = 0; i < array.length; i++){
+        if (array[i].email === email) {
+            return array[i]
+        } 
+    } 
+    return null
+}
+
+console.log(userSearch(users, "flavio1@homail.com"))
+
 // ## 5. Clase Persona
 // Creá una clase que represente una persona.
 // Debe tener propiedades básicas y un método que devuelva una presentación con sus datos.
+
+class Person {
+
+    constructor(name, surname, age, email, country) {
+        this.name = name
+        this.surname = surname
+        this.age = age
+        this.email = email
+        this.country = country
+    }
+
+    presentation() {
+        return `Buenos dias, mi nombre es ${this.name} ${this.surname}, tengo ${this.age} anios y vivo en ${this.country}. Mi contacto es ${this.email}`
+    }
+
+}
+
+let person1 = new Person("Facundo", "Vazquez", 32, "facu@hotmail.com", "Argentina")
+console.log(person1.presentation())
 
 // ## 6. Clase Producto
 // Creá una clase que represente un producto.
