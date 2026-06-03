@@ -141,6 +141,50 @@ console.log(person1.presentation())
 // Creá una clase que represente un producto.
 // Debe permitir aplicar descuentos, aumentar stock y vender unidades, validando que haya stock suficiente.
 
+class Product {
+
+    constructor(name, price, stock){
+        this.name = name
+        this.price = price
+        this.stock = stock
+    }
+
+    addStock(cantidad){
+        return this.stock += cantidad
+    }
+
+    sell(cantidad){
+        if (this.stock >= cantidad) {
+            return this.stock -= cantidad
+        }
+        return null
+    }
+
+    applyDiscount(porcentaje){
+        this.price -= this.price * porcentaje / 100
+        return this.price
+    }
+
+}
+
+// Creamos nuevo producto
+let product1 = new Product("pan", 100, 10)
+console.log(product1)
+
+// Probamos agregar stock
+product1.addStock(6)
+console.log(product1.stock)
+
+// Probamos comprar producto
+product1.sell(5)
+console.log(product1.stock)
+
+// Probamos descuento producto
+product1.applyDiscount(10)
+console.log(product1.price)
+
+
+
 // ## 7. Clase Cuenta Bancaria
 // Creá una clase que represente una cuenta bancaria.
 // Debe permitir depositar dinero, retirar dinero y consultar el saldo actual.
