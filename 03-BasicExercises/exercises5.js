@@ -190,6 +190,60 @@ console.log(product1.price)
 // Debe permitir depositar dinero, retirar dinero y consultar el saldo actual.
 // También debe validar que no se depositen o retiren montos inválidos.
 
+class AccountBank {
+    
+    constructor(cliente, cvu, alias, saldo){
+        this.cliente = cliente
+        this.cvu = cvu
+        this.alias = alias
+        this.saldo = saldo
+    }
+
+    ingresarSaldo(monto){
+        if(typeof monto === "number" && monto > 0){
+            this.saldo += monto
+            return this.saldo
+
+        }
+        return null
+    }
+
+    retirarSaldo(monto){
+        if(typeof monto === "number" && monto <= this.saldo ) {
+            this.saldo -= monto
+            return this.saldo
+        }
+        return null
+    }
+
+    consultarSaldo(){
+        return this.saldo
+    }
+
+
+
+}
+
+
+// Creamos una nueva cuenta 
+let accountBank1 = new AccountBank("Facundo Vazquez", "923181290319", "vfg9829", 100)
+
+// Probamos ingresar saldo
+accountBank1.ingresarSaldo(20)
+console.log(accountBank1.saldo)
+
+// Probamos retira saldo con manejo de error al ingresar un monto invalido 
+accountBank1.retirarSaldo(45);
+if (accountBank1.consultarSaldo() === null) {
+    console.log("Monto invalido.");
+} else {
+    console.log(`Saldo actual: ${accountBank1.consultarSaldo()}`);
+}
+
+
+// Consultar saldo
+console.log(accountBank1.consultarSaldo())
+
 // ## 8. Herencia entre Animal y Perro
 // Creá una clase base que represente un animal.
 // Luego creá una clase perro que herede de animal y sobrescriba el comportamiento del sonido.
