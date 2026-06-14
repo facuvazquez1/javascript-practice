@@ -248,10 +248,91 @@ console.log(accountBank1.consultarSaldo())
 // Creá una clase base que represente un animal.
 // Luego creá una clase perro que herede de animal y sobrescriba el comportamiento del sonido.
 
+class Animal {
+
+    constructor(nombre, peso, altura){
+        this.nombre = nombre
+        this.peso = peso
+        this.altura = altura
+    }
+
+    sonido(){
+        console.log("sonido")
+    }
+
+}
+
+class Perro extends Animal {
+
+    sonido(){
+        console.log("ladra")
+    }
+    
+}
+
+let miPerro = new Perro("Paulina", 10, 20)
+miPerro.sonido()
+
+
+
 // ## 9. Herencia entre Empleado y Desarrollador
 // Creá una clase base que represente un empleado.
 // Luego creá una clase desarrollador que herede de empleado y agregue información sobre el lenguaje de programación que utiliza.
 
+class Empleado {
+    constructor(nombreCompleto, legajo, sector){
+        this.nombreCompleto = nombreCompleto
+        this.legajo = legajo
+        this.sector = sector
+    }
+}
+
+class Desarrollador extends Empleado {
+    constructor(nombreCompleto, legajo, sector, lenguaje, sueldo){
+        super(nombreCompleto, legajo, sector)
+        this.lenguaje = lenguaje
+        this.sueldo = sueldo
+    }
+
+}
+
+let empleado1 = new Desarrollador("Markitos", 1239, "IT", "Javascript", 190000)
+console.log(empleado1)
+
 // ## 10. Sistema simple de cursos
 // Creá una clase que represente un curso.
 // El curso debe permitir agregar estudiantes, mostrar la lista de estudiantes y consultar la cantidad total de estudiantes inscriptos.
+
+class Curso {
+    constructor(id, curso){
+        this.id = id
+        this.curso = curso
+        this.estudiantes = []
+        
+    }
+
+    addEstudiante(estudiante){
+        if (typeof estudiante === "string") {
+            this.estudiantes.push(estudiante)
+        } else {
+            return null 
+        }
+    }
+
+    listEstudiantes(){
+        return this.estudiantes
+    }
+
+    totalEstudiantesInscriptos(){
+        let totalEstudiantes = this.estudiantes.length
+        return totalEstudiantes
+    }
+}
+
+let curso1 = new Curso(1, "Ingles Basico")
+
+curso1.addEstudiante("Facundo Medina")
+curso1.addEstudiante("Sol Vazquez")
+curso1.addEstudiante("Marcos Fernandez")
+console.log(curso1.listEstudiantes())
+console.log(curso1.totalEstudiantesInscriptos())
