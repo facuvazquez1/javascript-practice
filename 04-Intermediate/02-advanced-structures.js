@@ -81,3 +81,43 @@ const unionAB = new Set ([...setA, ...setB])
 console.log(unionAB)
 
 // Interseccion 
+
+const interseccion = new Set([...setA].filter(element => setB.has(element)))
+console.log(interseccion) // Set(2) { 2, 3 }
+
+// Diferencia
+
+const diferencia = new Set([...setA].filter(element => !setB.has(element)))
+console.log(diferencia) // Set(1) { 1 }
+
+// Conversion
+
+console.log([...setA])
+
+// Iteracion
+
+// for each
+
+setA.forEach(element => console.log(element))
+
+// Maps avanzados 
+
+let myMap = new Map([
+    ["name", "facundo"],
+    ["age", 37]
+])
+console.log(myMap) // Resultado: Map(2) { 'name' => 'facundo', 'age' => 37 }
+
+myMap.forEach((value, key) => console.log(`${key}: ${value}`))
+
+// - Conversion
+
+// Mapa a array
+
+const arrayFromMap = Array.from(myMap)
+console.log(arrayFromMap) // Resultado: [ [ 'name', 'facundo' ], [ 'age', 37 ] ]
+
+// Mapa a objeto
+
+const objectFromMap = Object.fromEntries(myMap)
+console.log(arrayFromMap)
