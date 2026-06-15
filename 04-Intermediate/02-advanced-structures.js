@@ -121,3 +121,8 @@ console.log(arrayFromMap) // Resultado: [ [ 'name', 'facundo' ], [ 'age', 37 ] ]
 
 const objectFromMap = Object.fromEntries(myMap)
 console.log(objectFromMap)
+
+// objeto a mapa 
+
+const mapFromObject = new Map(Object.entries(objectFromMap))
+console.log(mapFromObject)
