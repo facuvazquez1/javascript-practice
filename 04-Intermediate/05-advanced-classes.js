@@ -69,3 +69,49 @@ console.log(dog)
 dog.makeSound()
 
 // - Mixins 
+// es una tecnica para compartir diferentes funcionalidades en js sin recurris a herencias 
+
+// const VolarMixing = {
+//     fly(){
+//         console.log(`Esta volando`)
+//     }
+// }
+
+// class Bird extends Animal {
+   
+// }
+// class Dragon extends Animal {
+    
+// }
+
+// Object.assign(Bird, VolarMixing) 
+
+// const bird = new Bird("Pajaro Loco")
+// console.log(bird.name)
+// bird.fly()
+
+// const dragon = new Bird("DragonFire")
+// console.log()
+
+
+// Singleton - patrones de disenio 
+// Los patrones de disenio son ciertas convenciones que nosotros podemos seguir para resolver problemas comunes.
+// Que problema intenta resolver? asegurarse de que una clase solo se puede instanciar una unica vez. 
+
+class Session {
+    constructor(name){
+        if(Session.instance){
+            return Session.instance
+        }
+        this.name = name
+        Session.instance = this
+    }
+
+}
+
+const session1 = new Session("Brais Moure")
+const session2 = new Session()
+
+console.log(session1.name)
+console.log(session2.name)
+
