@@ -92,11 +92,54 @@ createPost()
 
 fetch("https://jsonplaceholder.typicode.com/noexisteestaRuta")
     .then(response => {
-        if (response.ok)
-        console.log(response.status)
+        if (!response.ok) {
+            throw Error(`Status Error HTTP: ${response.status}`)
+        }
+        return response.json()
     })
     
     .catch(error => {
         // Captura de errores si falla la peticion. 
         console.log("Error", error)
     })
+
+
+// Metodos HTTP adicionales 
+// - PATCH (ACTUALIZAR PARCIALMENTE UN RECURSO)
+// - OPTIONS (QUE METODOS HTTPS ESTAN DISPONIBLES PARA EL RECURSO)
+
+// Autenticacion mediante API Key
+
+
+
+async function getWeather(city) {
+    
+    const apiKeyOpenWheater = "3583908baea138f39a1c8f9c7198b9ea" // Mi API key Personal
+    const url = `https://api.openweathermap.org/data/4.0/onecall/current?q=${city}&appid=${apiKeyOpenWheater}`
+
+    try { 
+
+    const response = await fetch(url)
+    const data = await response.json()
+    console.log(data)
+
+    } catch (error) {
+        console.log("Error", error)
+    }
+
+}
+
+getWeather("Madrid")
+
+
+// Otros metodos de autenticacion y autorizacion
+// - Bearer Tokens
+// - JWT (Jason Web Tokens) - encriptado y mas seguro
+
+
+// --- Versionado de APIs ---
+// - https://api.example.com/v1/resources
+// - https://api.example.com/v2/resources
+
+// Otras APIs
+// PokeAPI -> GRATUITA para practicar 
