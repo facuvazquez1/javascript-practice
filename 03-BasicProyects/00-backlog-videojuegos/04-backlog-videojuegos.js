@@ -83,4 +83,27 @@ function ordenarPorPuntaje(lista){
 console.log(ordenarPorPuntaje(backlogGames))
 
 // --- Funcion 7 ---
+function top3(lista){
+    
+    const arrayOrderTop = ordenarPorPuntaje(lista)
+    const arrayTop3 = []  
+    for(let i = 0; i < 3; i++){
+        arrayTop3.push(arrayOrderTop[i])
+    }
+    return arrayTop3
+}
 
+console.log("############### TOP 3 ################")
+console.log(top3(backlogGames))
+
+// --- Funcion 7 ---
+
+function horasTotales(lista){
+    let horasTotales = 0
+    for(let i = 0; i < lista.length; i++){
+        horasTotales += lista[i].horas
+    }
+    return horasTotales
+}
+
+console.log(horasTotales(backlogGames))
